@@ -1,0 +1,7 @@
+.secrets.env
+venv/
+__pycache__/
+*.pyc
+screenshot_*.png
+*.html
+explorar_portal*.py
