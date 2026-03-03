@@ -6,7 +6,8 @@ PIP    := venv/bin/pip
 .PHONY: help install \
         list list-orientador list-professor \
         autorizar-orientador autorizar-professor autorizar-todos \
-        dry-run-orientador dry-run-professor
+        dry-run-orientador dry-run-professor \
+        emails-professor programas-professor historico-professor
 
 ## -----------------------------------------------------------------------
 ##  help — Show available targets (default)
@@ -65,3 +66,16 @@ dry-run-orientador: ## Dry-run Orientador (list without changes)
 
 dry-run-professor: ## Dry-run Professor (list without changes)
 	$(PYTHON) autorizar_professor.py --headless --dry-run
+
+## -----------------------------------------------------------------------
+##  Email collection
+## -----------------------------------------------------------------------
+
+emails-professor: ## Fetch emails from Professor tab students
+	$(PYTHON) buscar_emails.py --headless
+
+programas-professor: ## Fetch programs/courses from Professor tab students
+	$(PYTHON) buscar_programas.py --headless
+
+historico-professor: ## Fetch emails + programs combined from Professor tab
+	$(PYTHON) buscar_historico.py --headless

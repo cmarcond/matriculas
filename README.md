@@ -9,6 +9,9 @@ Automation scripts for student enrollment authorization on an academic portal bu
 | `listar_alunos.py` | Read-only listing of students from Orientador and/or Professor tabs, with class grouping |
 | `autorizar_alunos.py` | Authorizes (defers) pending students on the Orientador tab |
 | `autorizar_professor.py` | Authorizes (defers) pending students on the Professor tab |
+| `buscar_emails.py` | Fetches student emails from the Histórico interno report (Professor tab) |
+| `buscar_programas.py` | Fetches student programs/courses from the Histórico interno report (Professor tab) |
+| `buscar_historico.py` | Combined: fetches both email and program in a single pass (Professor tab) |
 
 ## Setup
 
@@ -37,7 +40,14 @@ make autorizar-professor   # Authorize Professor students
 make autorizar-todos       # Run both authorizations
 make dry-run-orientador    # Dry-run Orientador
 make dry-run-professor     # Dry-run Professor
+
+# Data collection (emails, programs)
+make emails-professor      # Fetch emails → emails_professor.csv
+make programas-professor   # Fetch programs → programas_professor.csv
+make historico-professor   # Fetch both → historico_professor.csv
 ```
+
+All data collection scripts support resume — if interrupted, re-running skips already-fetched students. Use `--limit N` to test with a subset.
 
 ## Requirements
 

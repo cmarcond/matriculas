@@ -5,3 +5,8 @@ __pycache__/
 screenshot_*.png
 *.html
 explorar_portal*.py
+
+# Data output files
+emails_professor.csv
+programas_professor.csv
+historico_professor.csv
